@@ -8,7 +8,7 @@ export default function Login() {
         <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center sm:px-16">
           <a href="https://dub.sh">
             <Image
-              src="/logo.png"
+              src="https://res.cloudinary.com/dnjadkrvy/image/upload/v1675045940/logo_ex1aid.svg"
               alt="Logo"
               className="h-10 w-10 rounded-full"
               width={20}

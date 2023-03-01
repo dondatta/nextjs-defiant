@@ -1,19 +1,29 @@
-import SignOut from "@/components/sign-out";
+import { Component, Fragment } from 'react'
+import { unstable_getServerSession } from "next-auth/next";
+import  Dheader  from "@/components/Dheader";
+import Sidebar from "@/components/Sidebar";
+import TopCards from '@/components/TopCards';
+import BarChart from '@/components/BarChart';
+import RecentOrders from '@/components/RecentOrders';
 
-export default function Home() {
+export default async function Dashboard() {
+ 
+  const session = await unstable_getServerSession();
+
   return (
-    <div className="flex h-screen bg-black">
-      <div className="w-screen h-screen flex flex-col space-y-5 justify-center items-center">
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full max-w-screen-lg aspect-video"
-        ></iframe>
-        <SignOut />
-      </div>
-    </div>
-  );
+    
+
+    <>
+      <main className="bg-grey-100 min-h-screen">
+        <Dheader />
+        
+         <TopCards />
+        <div className='p-4 grid md:grid-cols-3 grid-cols-1 gap-4'>
+          <BarChart />
+          <RecentOrders />
+        </div>
+      )}
+    </main>
+     </>
+  )
 }

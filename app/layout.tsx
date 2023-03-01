@@ -1,25 +1,39 @@
+"use client";
 // These styles apply to every route in the application
 import "@/styles/globals.css";
 import { Inter } from "@next/font/google";
+import  Header  from '@/components/Header'
 import Toaster from "@/components/toaster";
-import AuthStatus from "@/components/auth-status";
+import { Box } from "@/components/Box.js";
+import { NextUIProvider } from '@nextui-org/react';
+
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({
   variable: "--font-inter",
 });
 
-export default async function RootLayout({
-  children,
+export default function RootLayout({
+  children,session
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
+    session: any
 }) {
-  const AuthStatusDiv = await AuthStatus();
+
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <Toaster />
-        {AuthStatusDiv}
-        {children}
+         <Box
+    css={{
+      maxW: "100%"
+    }}
+  >     
+        <SessionProvider session={session}>
+        <Toaster /> <NextUIProvider>
+      <Header />
+          {children}</NextUIProvider>
+        </SessionProvider>
+        </Box>
       </body>
     </html>
   );

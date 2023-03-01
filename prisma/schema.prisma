@@ -19,6 +19,7 @@ model User {
   phone    Int?
   city     String?
   state    String?
+  photo    String?
   country  String?
   profile  Profile?
   media    Media[]

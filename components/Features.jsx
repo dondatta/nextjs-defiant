@@ -1,3 +1,4 @@
+"use client";
 export function Features() {
     return(
         <div class="container mx-auto space-y-2 lg:space-y-0 lg:gap-2 lg:grid lg:grid-cols-3">
