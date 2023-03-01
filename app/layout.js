@@ -14,10 +14,7 @@ const inter = Inter({
 });
 
 export default function RootLayout({
-  children,session
-}: {
-    children: React.ReactNode;
-    session: any
+  children
 }) {
 
   return (
